@@ -14,7 +14,6 @@ export class NovoClienteComponent implements OnInit{
   cliente: Cliente;
 
   criarCliente(novoCliente: Cliente){
-    console.log(novoCliente)
     this.clienteService.postCliente(novoCliente).subscribe(
       (response) => {
         this.router.navigate(['clientes']);

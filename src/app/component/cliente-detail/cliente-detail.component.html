@@ -1,0 +1,76 @@
+<div class="main-body">
+    <div class="row">
+        <a routerLink="/clientes" style="margin-bottom: 15px; cursor: pointer; text-decoration: underline;">Voltar para Clientes</a>
+        <h6>EDITAR CLIENTE</h6>
+        <br>
+        <div class="col-lg-12">
+            <div class="card">
+                <form *ngIf="cliente" class="card-body" #myForm="ngForm" (ngSubmit)="atualizarCliente(myForm.value)">
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Nome</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.nome" [ngModel]="cliente.nome" name="nome" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">CPF</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.cpf" [ngModel]="cliente.cpf" name="cpf" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Sexo</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.sexo" [ngModel]="cliente.sexo" name="sexo" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Telefone</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.telefone" [ngModel]="cliente.telefone" name="telefone" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.email" [ngModel]="cliente.email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Data de Nascimento</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="date" class="form-control" [value]="cliente.dataNascimento" [ngModel]="cliente.dataNascimento | date:'yyyy-MM-dd'" name="dataNascimento" required (ngModelChange)="cliente.dataNascimento = $event">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <h6 class="mb-0">Observação</h6>
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <input type="text" class="form-control" [value]="cliente.observacao" [ngModel]="cliente.observacao" name="observacao">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10 text-secondary">
+                            <button type="submit" class="button btn btn-success" [disabled]="!myForm.valid">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

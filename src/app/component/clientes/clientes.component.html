@@ -1,0 +1,31 @@
+<table *ngIf="arrayCliente" class="table table-striped">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Observação</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of arrayCliente; let i=index">
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf}}</td>
+            <td>{{cliente.sexo}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.dataNascimento | date}}</td>
+            <td>{{cliente.observacao}}</td>
+            <td>
+                <button [routerLink]="['/cliente/', cliente.id]" type="button" class="button btn btn-primary" style="margin-right: 15px;">Abrir</button>
+                <button type="button" class="button btn btn-danger" (click)="deletarCliente(cliente.id)">Deletar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<button [routerLink]="['/novocliente/']" type="button" class="button btn btn-success">Novo Cliente</button>
